@@ -5,14 +5,16 @@ import UseEffectFetchExample from './UseEffectFetch';
 import UseEfffectFetchapi from './UseEffectFetchapi';
 import PropsExample from './PropsExample';
 import { useState } from 'react';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 // import countContext from './context/context';
-import { useSelector,useDispatch } from 'react-redux';
-import { increment,decrement,incrementByAmount } from './createSlice';
+ import { useSelector,useDispatch } from 'react-redux';
+// import { increment,decrement,incrementByAmount } from './createSlice';
+import { increment,decrement } from './redux/actions';
+
 
 function App() {
-  const count = useSelector((state) => state.counter.value)
-  const dispatch = useDispatch()
+   const count = useSelector((state) => state.value)
+   const dispatch = useDispatch()
   return (
     <>
       {/* <countContext.Provider value={{count}}> */}
@@ -21,11 +23,11 @@ function App() {
        <UseEffectFetchExample/>
        <UseEfffectFetchapi/>
        <PropsExample/> */}
-          <h1>ankush</h1>
-          <button onClick={() => dispatch(increment())}>+</button>
-          <Navbar />
+          <h1>Redux example</h1>
+          {/* <button onClick={() => dispatch(increment())}>+</button> */}
+          {/* <Navbar /> */}
 
-          <button >click me</button>
+          <button onClick={() => dispatch(increment())}>click me +</button>
           {count}
         </div>
       {/* </countContext.Provider> */}
