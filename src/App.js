@@ -6,27 +6,29 @@ import UseEfffectFetchapi from './UseEffectFetchapi';
 import PropsExample from './PropsExample';
 import { useState } from 'react';
 import Navbar from './Navbar';
-import countContext from './context/context';
+// import countContext from './context/context';
+import { useSelector,useDispatch } from 'react-redux';
+import { increment,decrement,incrementByAmount } from './createSlice';
+
 function App() {
-  const [count, setCount] = useState(0);
-  const handleClick = () => {
-    setCount(count + 1);
-  };
+  const count = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
   return (
     <>
-      <countContext.Provider value={{count}}>
+      {/* <countContext.Provider value={{count}}> */}
         <div className="App">
           {/* <UseStateExample/>
        <UseEffectFetchExample/>
        <UseEfffectFetchapi/>
        <PropsExample/> */}
           <h1>ankush</h1>
+          <button onClick={() => dispatch(increment())}>+</button>
           <Navbar />
 
-          <button onClick={handleClick}>click me</button>
+          <button >click me</button>
           {count}
         </div>
-      </countContext.Provider>
+      {/* </countContext.Provider> */}
     </>
   );
 }

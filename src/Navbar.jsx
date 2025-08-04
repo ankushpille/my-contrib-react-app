@@ -1,8 +1,9 @@
-import Button from "./Button"
+import { useSelector } from "react-redux";
 
 function Navbar(){
+     const count = useSelector((state) => state.counter.value)
       return(
-        <Button />
+       <h1>navbar {count}</h1>
       )
 }
 
