@@ -29,7 +29,7 @@ function App() {
     <>
       {/* <countContext.Provider value={{count}}> */}
         <div className="App">
-           <UseStateExample/>
+           <UseStateExample value = "ankush"/>
        {/* <UseEffectFetchExample/>
        <UseEfffectFetchapi/>
        <PropsExample/>  */}

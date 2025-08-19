@@ -37,7 +37,7 @@
 
 import { useState } from "react"
 
-function UseStateExample(){
+function UseStateExample(props){
     const[count,setCount] = useState(0);
 
 //    {} <></> jsx example
@@ -50,6 +50,7 @@ function UseStateExample(){
         <>
          <button onClick={handleClick}>Click me</button>
          {count} 
+         {props.value}
         </>
     )
 }
