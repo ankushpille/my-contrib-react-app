@@ -17,6 +17,8 @@ function App() {
   const dispatch = useDispatch();
   const{users,loading,error} = useSelector((state) => state.users)
 
+  //npx create react-app application name
+
   useEffect(() => {
     dispatch(fetchUsers())
   },[dispatch])
