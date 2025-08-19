@@ -16,8 +16,10 @@ import { useEffect, useState } from 'react';
 function App() {
   const dispatch = useDispatch();
   const{users,loading,error} = useSelector((state) => state.users)
+  const a = [1,2,3,4]
 
   //npx create react-app application name
+  //how do you create event in a react .... we need to create event by giving onclick or onchange like that 
 
   useEffect(() => {
     dispatch(fetchUsers())
@@ -32,6 +34,13 @@ function App() {
        <UseEfffectFetchapi/>
        <PropsExample/>  */}
           <h1>Users List</h1>
+          <ul>
+        {
+          a.map((number) => (
+               <li key={number}>{number}</li>
+          ))
+        }
+        </ul>
           {/* <button onClick={() => dispatch(increment())}>+</button> */}
           {/* <Navbar /> */}
           {/* <button onClick={() => dispatch(increment())}>click me +</button> */}
