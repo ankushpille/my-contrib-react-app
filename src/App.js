@@ -4,7 +4,8 @@ import UseStateExample from './UseStateExample';
 import UseEffectFetchExample from './UseEffectFetch';
 import UseEfffectFetchapi from './UseEffectFetchapi';
 import PropsExample from './PropsExample';
-import { useEffect, useState } from 'react';
+import ChildComponent from './ChildComponent';
+import { useEffect, useState,createContext,useContext } from 'react';
 // import Navbar from './Navbar';
 // import countContext from './context/context';
  import { useSelector,useDispatch } from 'react-redux';
@@ -12,48 +13,47 @@ import { useEffect, useState } from 'react';
 // import { increment,decrement,incrementByAmount } from './createSlice';
 // import { increment,decrement } from './redux/actions';
 
+export const countContext = createContext()
 
 function App() {
-  const dispatch = useDispatch();
-  const{users,loading,error} = useSelector((state) => state.users)
-  const a = [1,2,3,4]
+  // const dispatch = useDispatch();
+  // const{users,loading,error} = useSelector((state) => state.users)
+  // const a = [1,2,3,4]
+   const [count,setCount] = useState(0);
+   const [count1,setCount2] = useState(0);
 
   //npx create react-app application name
   //how do you create event in a react .... we need to create event by giving onclick or onchange like that 
 
-  useEffect(() => {
-    dispatch(fetchUsers())
-  },[dispatch])
+  const handleClick = () => {
+    setCount(count+1)
+  }
+
+  const handleClick1 = () => {
+    setCount2(count1+1)
+  }
+
+  // useEffect(() => {
+  //   dispatch(fetchUsers())
+  // },[dispatch])
+
+
 
   return (
     <>
       {/* <countContext.Provider value={{count}}> */}
         <div className="App">
-           <UseStateExample value = "ankush"/>
-       {/* <UseEffectFetchExample/>
-       <UseEfffectFetchapi/>
-       <PropsExample/>  */}
           <h1>Users List</h1>
-          <ul>
-        {
-          a.map((number) => (
-               <li key={number}>{number}</li>
-          ))
-        }
-        </ul>
-          {/* <button onClick={() => dispatch(increment())}>+</button> */}
-          {/* <Navbar /> */}
-          {/* <button onClick={() => dispatch(increment())}>click me +</button> */}
-          {/* {count} */}
-          {/* {loading && <p>loading..</p>}
-          {error && <p>Error: {error}</p>}
-          <ul>
-           {users.map((u) => (
-                 <li key={u.id}>{u.name}</li>
-           ))}
-          </ul> */}
+          <button onClick={handleClick}>clickme</button>
+           <button onClick={handleClick1}>ReactMemo</button>
+           {count1}
+           {/* <countContext.Provider value = {{count}}>
+             <ChildComponent/>
+           </countContext.Provider> */}
+           <ChildComponent count={count}/>
+          
         </div>
-      {/* </countContext.Provider> */}
+      
     </>
   );
 }
