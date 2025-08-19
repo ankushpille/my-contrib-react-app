@@ -38,6 +38,20 @@ function App() {
   // },[dispatch])
 
 
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("/api/users"); // make sure API path is correct
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
 
   return (
     <>
