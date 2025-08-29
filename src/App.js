@@ -13,14 +13,16 @@
 // import { increment,decrement,incrementByAmount } from './createSlice';
 // import { increment,decrement } from './redux/actions';
 import Practice from './Practice';
+import { createContext } from 'react';
 
 // export const countContext = createContext()
+//export const countContext = createContext();
 
 function App() {
   // // const dispatch = useDispatch();
   // // const{users,loading,error} = useSelector((state) => state.users)
   // // const a = [1,2,3,4]
-  //  const [count,setCount] = useState(0);
+    //const [count,setCount] = useState(0);
   //  const [count1,setCount2] = useState(0);
 
   // //npx create react-app application name
