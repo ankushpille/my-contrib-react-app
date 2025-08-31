@@ -1,7 +1,12 @@
 // import logo from './logo.svg';
 // import './App.css';
 
-import Usestateex from "./hooks/Usestateex";
+import Usecontextex from "./hooks/Usecontextex";
+
+
+
+
+
 
 function App() {
   return (
@@ -9,7 +14,7 @@ function App() {
       {/* <countContext.Provider value={{count}}> */}
         <div className="App">
           <h1>Ankush</h1>
-          <Usestateex/>
+          <Usecontextex/>
         </div>
       
     </>
