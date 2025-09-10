@@ -1,7 +1,12 @@
 // import logo from './logo.svg';
 // import './App.css';
 
-import Usecontextex from "./hooks/Usecontextex";
+import { useEffect, useState } from "react";
+
+
+
+ 
+
 
 
 
@@ -9,12 +14,23 @@ import Usecontextex from "./hooks/Usecontextex";
 
 
 function App() {
+  const [count,setCount] = useState(0);
+
+  useEffect(() => {
+      console.log("count value changed:",count)
+  },[])
+  
+
+  const handleClick = () => {
+     setCount(count +1)
+  }
+
   return (
     <>
       {/* <countContext.Provider value={{count}}> */}
         <div className="App">
-          <h1>Ankush</h1>
-          <Usecontextex/>
+           <button onClick={handleClick}>click me</button>
+           {count}
         </div>
       
     </>
