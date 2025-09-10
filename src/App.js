@@ -1,7 +1,8 @@
 // import logo from './logo.svg';
 // import './App.css';
 
-import { useEffect, useState,useMemo } from "react";
+import { useEffect, useState,useMemo, useCallback } from "react";
+import Navbar from "./Navbar";
 
 
 
@@ -15,23 +16,30 @@ import { useEffect, useState,useMemo } from "react";
 
 function App() {
   const [count,setCount] = useState(0);
-  const [somestate,setSomeState] = useState(0);
+  const [somestate,setSomeState] = useState(true);
 
-  const expensiveCalculation = useMemo(() => {
-    console.log("Calculating...");
-         return count * 10
-  },[count]);
-   
-    
+
+
+  // const handleClick = () => {
+  //    setCount(count + 1);
+  // }
+
+  const handleClick = useCallback(() => {
+     setCount((c) => c +1);
+  },[count])
+
+  const handleClick2 = () => {
+    setSomeState(!somestate);
+  }
+
   return (
     <>
       {/* <countContext.Provider value={{count}}> */}
         <div className="App">
-             <button onClick={() => setCount(count + 1)}>Click me to increase count</button>
-             <button onClick = {() => setSomeState(somestate + 1)}>Click me to increase somestate</button>
-           {count}
-           {somestate}
-            <div>Expensive Calculation: {expensiveCalculation}</div>
+             <Navbar count={count}  handleClick={handleClick} />
+             <button onClick={handleClick}>click me</button>
+             <button>toggle</button>
+             {count}
         </div>
       
     </>
