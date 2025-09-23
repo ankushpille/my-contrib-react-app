@@ -3,6 +3,7 @@
 
 import { useEffect, useState,useMemo, useCallback } from "react";
 import Navbar from "./Navbar";
+import CreateTodoList from "./Create";
 
 
 
@@ -24,24 +25,19 @@ function App() {
   //    setCount(count + 1);
   // }
 
-  const handleClick = useCallback(() => {
-     setCount((c) => c +1);
-  },[count])
+  // const handleClick = useCallback(() => {
+  //    setCount((c) => c +1);
+  // },[count])
 
-  const handleClick2 = () => {
-    setSomeState(!somestate);
-  }
+  // const handleClick2 = () => {
+  //   setSomeState(!somestate);
+  // }
 
   return (
     <>
       {/* <countContext.Provider value={{count}}> */}
-        <div className="App">
-             <Navbar count={count}  handleClick={handleClick} />
-             <button onClick={handleClick}>click me</button>
-             <button>toggle</button>
-             {count}
-        </div>
-      
+     <h1>Hello ankush</h1>
+     <CreateTodoList/>
     </>
   );
 }
